@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Planner | Response</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome for Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  
+  <style>
+    body{
+      background: linear-gradient(to right, #fdfcfb, #e2d1c3);
+    }
+footer{
+position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <h1>Event Planner</h1>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2>Response</h2>
+    <!-- Display the message -->
+    <p id="responseMessage"></p>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Event Planner | Designed with ❤️</p>
+
+    <div class="social-icons">
+      <a href="#" title="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" title="Follow us on Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="#" title="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" title="Follow us on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </footer>
+
+  <script>
+    // Retrieve the message from localStorage and display it
+    const responseMessage = localStorage.getItem('responseMessage');
+    document.getElementById('responseMessage').textContent = responseMessage;
+
+    // Clear the message from localStorage after displaying it
+    localStorage.removeItem('responseMessage');
+  </script>
+</body>
+</html>

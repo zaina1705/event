@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Planner | Contact</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome for Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  
+  <style>
+    body{
+      background: linear-gradient(to right, #fdfcfb, #e2d1c3);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <h1>Event Planner</h1>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2>Get in Touch with Us!</h2>
+    <p>Have questions? We're here to help make your event unforgettable.</p>
+    <!-- Add ID to the form -->
+    <form id="contactForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" placeholder="Your full name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Your email address" required>
+
+      <label for="phone">Phone:</label>
+      <input type="tel" id="phone" name="phone" placeholder="Your phone number (optional)">
+
+      <label for="subject">Subject:</label>
+      <select id="subject" name="subject" required>
+        <option value="" disabled selected>Select a subject</option>
+        <option value="general">General Inquiry</option>
+        <option value="booking">Event Booking</option>
+        <option value="feedback">Feedback</option>
+        <option value="other">Other</option>
+      </select>
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent the default form submission behavior
+
+      const subject = document.getElementById('subject').value;
+      let message = '';
+
+      // Based on the selected subject, set a different message
+      if (subject === 'booking') {
+        message = 'Your booking is successful.';
+      } else if (subject === 'general') {
+        message = 'We will get in touch with you soon.';
+      } else if (subject === 'feedback') {
+        message = 'Thanks for your feedback.';
+      } else {
+        message = 'Thank you for reaching out.';
+      }
+
+      // Store the message in localStorage
+      localStorage.setItem('responseMessage', message);
+
+      // Redirect to the response page
+      window.location.href = 'response.html';
+    });
+  </script>
+
+  <footer>
+    <p>&copy; 2025 Event Planner | Designed with ❤️</p>
+
+    <div class="social-icons">
+      <a href="#" title="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" title="Follow us on Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="#" title="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" title="Follow us on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </footer>
+
+</body>
+</html>
